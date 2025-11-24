@@ -15,13 +15,16 @@
   }
   *{box-sizing:border-box}
   html,body{height:100%}
-  html{scroll-behavior:smooth}
+  html { scroll-behavior: smooth; }
+
   body{
     margin:0;background:var(--bg);color:var(--text);
     font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
     -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   }
   a{color:inherit}
+  img{max-width:100%;height:auto;display:block}
+
   .container{max-width:var(--max);margin-inline:auto;padding:var(--pad)}
   .skip-link{position:absolute;left:var(--pad);top:-100px;background:var(--accent);color:#00150f;padding:8px 12px;border-radius:10px;transition:top .2s;z-index:100}
   .skip-link:focus{top:12px}
@@ -29,11 +32,7 @@
   header{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:saturate(140%) blur(8px);height:var(--header-height);display:flex;align-items:center}
   .nav{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(16,21,27,.95),rgba(16,21,27,.75));border-bottom:1px solid rgba(255,255,255,.06);width:100%;height:100%}
   .brand{display:flex;align-items:center;gap:8px;text-decoration:none}
-  .brand__img {
-    height: 26px;
-    width: auto;
-    display: block;
-  }
+  .brand__img {height:26px;width:auto;display:block;}
   .brand__name{font-weight:700;letter-spacing:.3px}
   nav ul{display:flex;gap:10px;list-style:none;margin:0;padding:0}
   .pill{display:inline-flex;align-items:center;padding:10px 14px;border-radius:999px;text-decoration:none;color:var(--text);border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.02);box-shadow:0 1px 0 rgba(255,255,255,.05) inset;white-space:nowrap}
@@ -41,7 +40,6 @@
   .pill.active,.pill[aria-current="true"]{border-color:var(--accent);box-shadow:0 0 0 2px rgba(57,230,182,.15)}
   @media (max-width:640px){
     nav ul{gap:6px}.pill{padding:8px 12px;font-size:14px}
-    header .container{padding:0 var(--pad)}
   }
 
   main{margin-top:var(--header-height)}
@@ -56,62 +54,78 @@
       linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.7)),
       repeating-linear-gradient(120deg, rgba(255,255,255,.03) 0 2px, transparent 2px 10px);
   }
-  .hero__content{position:relative;text-align:center;padding:var(--pad);z-index:1;max-width:90vw}
-  .hero h1{font-size:clamp(36px,6vw,64px);margin:0 0 10px;word-break:break-word}
-  .hero p{margin:0 auto 18px;max-width:720px;color:var(--muted);word-break:break-word}
+  .hero__content{text-align:center;position:relative;padding:var(--pad);z-index:1;max-width:90vw}
+  .hero h1{font-size:clamp(36px,6vw,64px);margin:0 0 10px;}
+  .hero p{margin:0 auto 18px;max-width:720px;color:var(--muted);}
   .controls{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;padding:12px 18px;border-radius:999px;background:linear-gradient(180deg, rgba(57,230,182,.15), rgba(57,230,182,.08));border:1px solid rgba(57,230,182,.5);text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:transform .15s;white-space:nowrap;cursor:pointer;font-size:inherit;font-family:inherit}
+  .btn{display:inline-flex;align-items:center;padding:12px 18px;border-radius:999px;background:linear-gradient(180deg, rgba(57,230,182,.15), rgba(57,230,182,.08));border:1px solid rgba(57,230,182,.5);text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:transform .15s;white-space:nowrap;cursor:pointer;}
   .btn:hover{transform:translateY(-1px)}
   .btn--secondary{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14)}
   .chevron{margin-top:26px;display:inline-block;opacity:.9}
   .chevron svg{width:28px;height:28px;display:block;animation:float 1.8s ease-in-out infinite}
   @keyframes float{50%{transform:translateY(6px);opacity:.7}}
-  @media (max-width:640px){
-    .controls{gap:8px;padding:0 var(--pad)}
-    .btn{padding:10px 14px;font-size:14px}
-  }
 
   section{scroll-margin-top:calc(var(--header-height) + 20px)}
   .section{padding-block:clamp(54px,8vw,96px)}
   .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-  h2{font-size:clamp(26px,4.2vw,40px);margin:0 0 12px;word-break:break-word}
+  h2{font-size:clamp(26px,4.2vw,40px);margin:0 0 12px}
   .lead{color:var(--muted);margin:0 0 22px;max-width:80ch}
-  .about-grid{display:grid;gap:18px}
-  .bullets{display:grid;gap:10px;padding:0;margin:0;list-style:none}
-  .bullets li{display:flex;align-items:center;gap:.8ch}
-  .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(57,230,182,.15);flex-shrink:0}
-  .grid{display:grid;gap:16px}
-  @media (min-width:720px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
-  .product .logo{width:88px;height:88px;border-radius:16px;display:grid;place-items:center;background:conic-gradient(from 180deg, rgba(122,224,255,.15), rgba(57,230,182,.18));border:1px solid rgba(255,255,255,.12);color:#00150f;font-weight:700;flex-shrink:0}
-  .cta-row{display:flex;gap:10px;flex-wrap:wrap}
-  .partner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
-  .partner{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;height:90px;display:grid;place-items:center;filter:grayscale(100%);transition:filter .2s, transform .2s, border-color .2s;text-decoration:none;color:inherit}
-  .partner:hover{filter:grayscale(0%);transform:translateY(-2px);border-color:var(--accent)}
-  .partner svg{width:72px;height:28px}
+
+  /* PRODUCT LOGOS */
+  .product-logo-img{
+    width:100%;
+    max-width:160px;
+    border-radius:12px;
+    background:#222;
+  }
+  .product-logo-link{
+    display:inline-block;
+    margin-bottom:8px;
+  }
+
+  /* PARTNER LOGOS */
+  .partner-logo-img{
+    width:100%;
+    max-width:220px;
+    border-radius:12px;
+    background:#222;
+  }
+  .partner-logo-link{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:18px;
+    border-radius:16px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.1);
+    transition:transform .2s,filter .2s,border-color .2s;
+  }
+  .partner-logo-link:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+    filter:grayscale(0%);
+  }
+
   footer{border-top:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg, rgba(16,21,27,.85), rgba(16,21,27,1))}
   .footer-wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
   .mini-nav{display:flex;gap:12px;flex-wrap:wrap}
   .mini-nav a{opacity:.9;text-decoration:none;padding:6px 10px;border-radius:10px;border:1px solid transparent}
   .mini-nav a:hover{border-color:rgba(255,255,255,.12)}
   small{color:var(--muted)}
-
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    .chevron svg{animation:none}
-  }
 </style>
 </head>
+
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header>
-  <div class="nav container" role="navigation" aria-label="Primary">
-    <a class="brand" href="#" aria-label="Vitalistix home">
-    <img src="https://ik.imagekit.io/vitalistixmerit/Vitalistix/White_on_Transp(Icon%20Only).png?updatedAt=1762313223860" alt="Vitalistix Logo" class="brand__img" />
-    <span class="brand__name">Vitalistix</span>
+  <div class="nav container">
+    <a class="brand" href="#">
+      <img src="https://ik.imagekit.io/vitalistixmerit/Vitalistix/White_on_Transp(Icon%20Only).png?updatedAt=1762313223860" alt="Vitalistix Logo" class="brand__img" />
+      <span class="brand__name">Vitalistix</span>
     </a>
 
-    <nav aria-label="Section links">
+    <nav>
       <ul>
         <li><a class="pill" href="#about">About</a></li>
         <li><a class="pill" href="#products">Products</a></li>
@@ -122,48 +136,46 @@
 </header>
 
 <main id="main">
+
   <!-- HERO -->
-  <section class="hero" aria-label="Intro">
-    <video class="hero__video" id="bgVideo" autoplay muted loop playsinline>
+  <section class="hero">
+    <video class="hero__video" autoplay muted loop playsinline>
       <source src="https://ik.imagekit.io/vitalistixmerit/Vitalistix/small-vecteezy_space-flight-over-planet-earth-stars-in-the-backround-4k_21889557_small.mp4?updatedAt=1762310226421" type="video/mp4" />
     </video>
-
-    <div class="hero__backdrop" aria-hidden="true"></div>
+    <div class="hero__backdrop"></div>
 
     <div class="hero__content container">
       <h1>Vitalistix</h1>
       <p>Human-centered health innovation for a balanced, informed life.</p>
       <div class="controls">
-        <a href="#about" class="btn" title="Learn more about Vitalistix">Explore</a>
+        <a href="#about" class="btn">Explore</a>
       </div>
-      <a class="chevron" href="#about" aria-label="Scroll to About section">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      <a class="chevron" href="#about">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
       </a>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="about-grid">
-        <header>
-          <h2>About Vitalistix</h2>
-          <p class="lead">
-            Vitalistix builds simple, science-informed tools and education that empower everyday health.
-            Our mission is to make metabolic literacy accessible, actionable, and humane.
-          </p>
-        </header>
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <h2>About Vitalistix</h2>
 
-        <div class="card">
-          <ul class="bullets" aria-label="Focus areas">
-            <li><span class="dot" aria-hidden="true"></span><span>Education that demystifies</span></li>
-            <li><span class="dot" aria-hidden="true"></span><span>Practical tools &amp; guides</span></li>
-            <li><span class="dot" aria-hidden="true"></span><span>Community &amp; partnership</span></li>
-          </ul>
-        </div>
-      </div>
+    <p class="lead">
+      Vitalistix is a human-centered health innovation brand focused on making metabolic literacy accessible,
+      actionable, and scientifically grounded. We develop research tools, practical guides, and community-focused
+      services that empower people to understand and improve their everyday health.
+    </p>
+
+    <div class="card">
+      <ul class="bullets">
+        <li><span class="dot"></span>Home of MERIT — Metabolic Epilepsy Research &amp; Information Taskforce</li>
+        <li><span class="dot"></span>Science-based metabolic education and practical therapy guides</li>
+        <li><span class="dot"></span>Health-focused commerce through WBTSOK (We Buy Test Strips Oklahoma)</li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- PRODUCTS -->
   <section id="products" class="section">
@@ -171,42 +183,17 @@
       <h2>Products</h2>
       <p class="lead">Simple resources designed for real life. Clear, printable, and ready to use.</p>
 
-      <div class="grid cols-2" role="list">
-        <article class="card product" role="listitem">
-          <div style="display:flex;gap:16px;align-items:center;margin-bottom:8px;min-width:0;">
-            <div class="logo" role="img" aria-label="MERIT product logo">Logo</div>
-            <h3 style="margin:0;min-width:0;overflow:hidden;text-overflow:ellipsis;">MERIT</h3>
-          </div>
-          <p style="margin-top:0;">A practical framework for metabolic literacy and daily choices.</p>
-          <div class="cta-row"><a class="btn" href="#" aria-label="Learn more about MERIT">Learn More</a></div>
+      <div class="grid cols-2">
+
+        <!-- PRODUCT 1 -->
+        <article class="card product">
+          <a class="product-logo-link" href="https://techtronixprotocols.github.io/Vitalistix-MERIT/" target="_blank">
+            <img src="https://ik.imagekit.io/vitalistixmerit/MERIT(NoTextLogo-TranspartBackground)v1.png?updatedAt=1759019663429" alt="MERIT Logo" class="product-logo-img"/>
+          </a>
+          <h3>MERIT</h3>
+          <p>A practical framework for metabolic literacy and daily choices.</p>
         </article>
 
-        <article class="card product" role="listitem">
-          <div style="display:flex;gap:16px;align-items:center;margin-bottom:8px;min-width:0;">
-            <div class="logo" role="img" aria-label="Vitalistix Guides logo">Logo</div>
-            <h3 style="margin:0;min-width:0;overflow:hidden;text-overflow:ellipsis;">Vitalistix Guides</h3>
-          </div>
-          <p style="margin-top:0;">Clear, printable nutrition &amp; lifestyle resources.</p>
-          <div class="cta-row"><a class="btn" href="#" aria-label="Learn more about Vitalistix Guides">Learn More</a></div>
-        </article>
-
-        <article class="card product" role="listitem">
-          <div style="display:flex;gap:16px;align-items:center;margin-bottom:8px;min-width:0;">
-            <div class="logo" role="img" aria-label="Vitalistix Tools logo">Logo</div>
-            <h3 style="margin:0;min-width:0;overflow:hidden;text-overflow:ellipsis;">Vitalistix Tools</h3>
-          </div>
-          <p style="margin-top:0;">Simple trackers and checklists to support daily habits.</p>
-          <div class="cta-row"><a class="btn" href="#" aria-label="Learn more about Vitalistix Tools">Learn More</a></div>
-        </article>
-
-        <article class="card product" role="listitem">
-          <div style="display:flex;gap:16px;align-items:center;margin-bottom:8px;min-width:0;">
-            <div class="logo" role="img" aria-label="Product logo placeholder">Logo</div>
-            <h3 style="margin:0;min-width:0;overflow:hidden;text-overflow:ellipsis;">Coming Soon</h3>
-          </div>
-          <p style="margin-top:0;">Additional resources under active development.</p>
-          <div class="cta-row"><a class="btn btn--secondary" href="#" aria-label="Get updates">Get Updates</a></div>
-        </article>
       </div>
     </div>
   </section>
@@ -217,45 +204,38 @@
       <h2>Partners</h2>
       <p class="lead">We work with mission-aligned partners to expand access and impact.</p>
 
-      <div class="partner-grid" role="list">
-        <a class="partner" role="listitem" href="#" aria-label="Partner link">
-          <svg viewBox="0 0 100 24" aria-hidden="true"><rect x="0" y="8" width="100" height="8" fill="currentColor"/></svg>
+      <div class="partner-grid">
+
+        <!-- PARTNER 1 -->
+        <a class="partner-logo-link" href="https://www.webuyteststripsoklahoma.com/" target="_blank">
+          <img src="https://www.webuyteststripsoklahoma.com/assets/WBSTOK-Logo_2.png" alt="Partner Logo" class="partner-logo-img">
         </a>
-        <a class="partner" role="listitem" href="#" aria-label="Partner link">
-          <svg viewBox="0 0 100 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/><rect x="28" y="8" width="70" height="8" fill="currentColor"/></svg>
-        </a>
-        <a class="partner" role="listitem" href="#" aria-label="Partner link">
-          <svg viewBox="0 0 100 24" aria-hidden="true"><rect x="0" y="5" width="60" height="14" fill="currentColor"/><rect x="66" y="5" width="34" height="14" fill="currentColor"/></svg>
-        </a>
-        <a class="partner" role="listitem" href="#" aria-label="Partner link">
-          <svg viewBox="0 0 100 24" aria-hidden="true"><rect x="0" y="3" width="100" height="18" rx="9" fill="currentColor"/></svg>
-        </a>
+
       </div>
     </div>
   </section>
+
 </main>
 
-<footer role="contentinfo">
+<footer>
   <div class="container footer-wrap">
     <small>© <span id="year"></span> Vitalistix. All rights reserved.</small>
-    <nav class="mini-nav" aria-label="Footer">
+    <nav class="mini-nav">
       <a href="#about">About</a>
       <a href="#products">Products</a>
       <a href="#partners">Partners</a>
-      <a href="#">Sitemap</a>
     </nav>
   </div>
 </footer>
 
 <script>
-  // Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', e=>{
       const id=a.getAttribute('href').slice(1), el=document.getElementById(id);
-      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); history.replaceState(null,'','#'+id); }
+      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
     });
   });
 
@@ -265,12 +245,20 @@
   const io=new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       const id=entry.target.id, link=map.get(id);
-      if(entry.isIntersecting){ links.forEach(l=>l.classList.remove('active')); link?.classList.add('active'); link?.setAttribute('aria-current','true'); }
-      else{ link?.removeAttribute('aria-current'); }
+      if(entry.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        link?.classList.add('active');
+        link?.setAttribute('aria-current','true');
+      } else {
+        link?.removeAttribute('aria-current');
+      }
     });
-  },{rootMargin:'-45% 0px -45% 0px',threshold:[0,0.25,0.5,0.75,1]});
-  ['about','products','partners'].forEach(id=>{const s=document.getElementById(id); if(s) io.observe(s);});
-
+  },{rootMargin:'-45% 0px -45% 0px'});
+  ['about','products','partners'].forEach(id=>{
+    const s=document.getElementById(id);
+    if(s) io.observe(s);
+  });
 </script>
+
 </body>
 </html>
